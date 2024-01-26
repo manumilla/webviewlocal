@@ -24,12 +24,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // calendario
         // Obtener la fecha actual
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMdd", Locale.getDefault());
-        String currentDate = dateFormat.format(new Date());
+        SimpleDateFormat dateFormat_day = new SimpleDateFormat("dd", Locale.getDefault());
+        SimpleDateFormat dateFormat_month = new SimpleDateFormat("MM", Locale.getDefault());
+        String currentDate_day = dateFormat_day.format(new Date());
+        int number_day = Integer.parseInt(currentDate_day);
+        String dia = Integer.toString(number_day);
+        String currentDate_month = dateFormat_month.format(new Date());
+        int number_month = Integer.parseInt(currentDate_month);
+        String mes = Integer.toString(number_month);
 
         // Construir la URL con el ancla
-        String url = "file:///android_asset/mais_semelhante_a_jesus.html#" + currentDate;
-
+        // String url = "file:///android_asset/mais_semelhante_a_jesus.html#" + currentDate;
+        String url = "https://sites.google.com/site/maissemelhanteajesus/languagespanish/month" + mes + "/day" + dia;
         webView = findViewById(R.id.myWebView);
         WebSettings webSettings = webView.getSettings();
         webSettings.setBuiltInZoomControls(true);
